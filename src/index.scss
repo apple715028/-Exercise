@@ -55,9 +55,9 @@
 
   .transition{
     &.closing,&.opening{
-        transition: all .75s;
+        transition: all .8s;
         .wrap,.btn{
-            transition: all .75s;
+            transition: all .8s;
         }
     }
   }

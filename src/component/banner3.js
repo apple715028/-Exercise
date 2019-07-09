@@ -18,7 +18,7 @@ class Banner extends React.Component {
        if(this.props.autoToggle === true){
             window.setTimeout(() => this.toggle(), 100);
        }else if(typeof (this.props.autoToggle) ==  "number"){
-            window.setTimeout(() => this.toggle(), this.props.autoToggle);
+        window.setTimeout(() => this.toggle(), this.props.autoToggle);
        }
       
     }
@@ -37,6 +37,7 @@ class Banner extends React.Component {
         this.time();
         if(this.props.transition === true){
             this.transition();
+            // window.setTimeout(() => this.openclose(), 800);
         }else{
             this.openclose();
         }
@@ -50,9 +51,11 @@ class Banner extends React.Component {
             }else  {
                 this.closebanner();
             }
+            clearInterval(this.timer);
             this.setState({
                 runtr:false
             })
+      
         }
     }
     openclose = () =>{
@@ -60,6 +63,7 @@ class Banner extends React.Component {
             this.openbanner();
         }else  {
             this.closebanner();
+            
         } 
     }
     openbanner =()=>{
@@ -74,11 +78,12 @@ class Banner extends React.Component {
             button:this.props.closeText,
         });
     }
-    // 第二次開關
+
     openAtStart = () =>{
         this.time();
         if(this.props.transition === true){
             this.transition();
+            // window.setTimeout(() => this.openbanner(), 800);
         }else{
             this.openbanner()
         }
@@ -87,6 +92,7 @@ class Banner extends React.Component {
         this.time();
         if(this.props.transition === true){
             this.transition();
+            // window.setTimeout(() => this.closebanner(), 800);
         }else{
             this.closebanner()
         }
@@ -122,6 +128,7 @@ class Banner extends React.Component {
 
     render(){
         const { data } = this.props;
+        // console.log( this.props);
         const{openAtStart,autoToggle,button,nameclass,transition}=this.state;
         let class2 = transition === true ? "transition" :"";
         return(

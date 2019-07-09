@@ -5,11 +5,11 @@ import Banner from "./component/Banner"
 import "./index.scss";
 let data={
   openAtStart:true,
-  autoToggle:false ,
+  autoToggle:true,
   btnclass:"btn" ,
   closeText:'收合',
   openText: '展開', 
-  transition: false
+  transition: true
 }
 class App extends React.Component {
   constructor(props){
@@ -18,13 +18,13 @@ class App extends React.Component {
   }
   openclose =()=>{
     // console.log( this.namefun)
-    this.namefun.current.Btnclick();
+    this.namefun.current.toggle();
   }
   opensshow = () =>{
-    this.namefun.current.openbanner();
+    this.namefun.current.openAtStart();
   }
   closeshow = () =>{
-    this.namefun.current.closebanner();
+    this.namefun.current.closeAtStart();
   }
 
   render(){
